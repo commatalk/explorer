@@ -1,0 +1,192 @@
+{
+  "_args": [
+    [
+      "@dashevo/dashcore-node@^5.1.3",
+      "/home/truongnx/mynode"
+    ]
+  ],
+  "_from": "@dashevo/dashcore-node@>=5.1.3 <6.0.0",
+  "_hasShrinkwrap": false,
+  "_id": "@dashevo/dashcore-node@5.1.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/@dashevo/dashcore-node",
+  "_nodeVersion": "10.15.3",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/dashcore-node_5.1.3_1555933482712_0.6065882862136864"
+  },
+  "_npmUser": {
+    "email": "ivan@shumkov.ru",
+    "name": "shumkov"
+  },
+  "_npmVersion": "6.4.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "@dashevo/dashcore-node",
+    "raw": "@dashevo/dashcore-node@^5.1.3",
+    "rawSpec": "^5.1.3",
+    "scope": "@dashevo",
+    "spec": ">=5.1.3 <6.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@dashevo/dashcore-node/-/dashcore-node-5.1.3.tgz",
+  "_shasum": "528ff75c1b825a3bf8b9e5fa4d91ecf8b1f79080",
+  "_shrinkwrap": null,
+  "_spec": "@dashevo/dashcore-node@^5.1.3",
+  "_where": "/home/truongnx/mynode",
+  "author": {
+    "email": "dev@bitpay.com",
+    "name": "BitPay"
+  },
+  "bin": {
+    "dashcore-node": "./bin/dashcore-node"
+  },
+  "bugs": {
+    "url": "https://github.com/dashevo/dashcore-node/issues"
+  },
+  "contributors": [
+    {
+      "name": "Christopher Jeffrey"
+    },
+    {
+      "name": "Braydon Fuller",
+      "email": "braydon@bitpay.com"
+    },
+    {
+      "name": "Chris Kleeschulte",
+      "email": "chrisk@bitpay.com"
+    },
+    {
+      "name": "Patrick Nagurny",
+      "email": "patrick@bitpay.com"
+    }
+  ],
+  "dependencies": {
+    "@dashevo/dashcore-lib": "^0.17.2",
+    "@dashevo/dashd-rpc": "^1.2.1",
+    "async": "^2.6.1",
+    "body-parser": "^1.18.3",
+    "bufferutil": "~4.0.1",
+    "colors": "^1.3.3",
+    "commander": "^2.19.0",
+    "errno": "^0.1.7",
+    "express": "^4.16.4",
+    "liftoff": "^2.5.0",
+    "lru-cache": "^4.0.1",
+    "mkdirp": "0.5.1",
+    "path-is-absolute": "^1.0.0",
+    "semver": "^5.6.0",
+    "socket.io": "^2.2.0",
+    "socket.io-client": "^2.2.0",
+    "utf-8-validate": "~5.0.2",
+    "zeromq": "^5.1.0"
+  },
+  "description": "Full node with extended capabilities using Dashcore and Dash Core (dashd)",
+  "devDependencies": {
+    "@dashevo/dashcore-p2p": "^1.1.9",
+    "benchmark": "2.1.4",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
+    "istanbul": "^0.4.5",
+    "jshint": "^2.9.7",
+    "jshint-stylish": "^2.2.1",
+    "mocha": "^4.1.0",
+    "proxyquire": "^2.1.0",
+    "rimraf": "^2.6.2",
+    "sinon": "^2.4.1"
+  },
+  "directories": {},
+  "dist": {
+    "fileCount": 77,
+    "integrity": "sha512-R/+C5tDDud2s1mDGxNnQUrVlQ1LDuQ6kwlrv9ludBXDgRTexdlWjifz5l3PmzEzwXKyN1MQJSUJcuyPoz1qkjg==",
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJcvakrCRA9TVsSAnZWagAA11sP/RrIfhwv5Gir3DX6pEAJ\n3kqgtYBV50qQDy3PJBN1ErdriWT0TjqRPGCM02NkOgtEVhBCW/pC3IvYiD0F\noP+JAOaiyOXQkQMt7K52xWIwojZ4i6FRXCnN9AsxAjNcBhCHHc0WEmA8GeXF\n6gyHmX9gWLndna5sVYstrmw8d2/rstoxEruDNZLsPn3UJB3lWIRUoYRCtk60\nprr1OBzezt74T3Ncu5sdP9ExAskKm7bEaD8UD4cLvpICXiPi4RdoQk0+ehX+\nFE3f/QgU1oxALbWzz7Nr3fVLbPicVata371XS5B6Dp1Qp0PhcF8JiaLIPg9E\nGkaEr1aAWLRT0thrRmg4dgUCwGGofe2jknvEF2fmWAL5DQJBbswhTJahQIUT\nIG3EgXTDuHrMoy2HM4XzORNsBIdrVfMytZpla4Qdw0+qlLLFhdCj5qwOQO/i\n2of0g5JUNaF8jqAN+5eq5Dho1JGyMoRBvDgqKvCZ9HrcjUE+5vzp8yGrYXlZ\n7j6zpnDBS9vuGlnTH/4fafBYmdSa317nggQaiibfM9JB2Ys1YkszhGkOkZmN\n4OljqZNBZ8ofDGGiFE1Lifcx2nc4uf/V0de4aWgz2G21L3VTKqG+dWlrwXv4\n7P8VOojTxsYlJvjL6sTx65sHhmehsFlH7VWC3FcNaBwvllpNnsUk+QIHugTz\n2Yqb\r\n=TBMf\r\n-----END PGP SIGNATURE-----\r\n",
+    "shasum": "528ff75c1b825a3bf8b9e5fa4d91ecf8b1f79080",
+    "tarball": "https://registry.npmjs.org/@dashevo/dashcore-node/-/dashcore-node-5.1.3.tgz",
+    "unpackedSize": 41647083
+  },
+  "gitHead": "2beae92c1a4cf0f6f09f65a31f0566930fd6a8b3",
+  "homepage": "https://github.com/dashevo/dashcore-node",
+  "license": "MIT",
+  "main": "./index.js",
+  "maintainers": [
+    {
+      "name": "evodeploy",
+      "email": "evodeploy@blackcarrot.be"
+    },
+    {
+      "name": "abvgedeika",
+      "email": "abvgedeika@gmail.com"
+    },
+    {
+      "name": "andyfreer",
+      "email": "andy@dash.org"
+    },
+    {
+      "name": "antouhou",
+      "email": "antouhou@gmail.com"
+    },
+    {
+      "name": "cofresi",
+      "email": "cofresi@dash.org"
+    },
+    {
+      "name": "dalibran",
+      "email": "dana.alibrandi@dash.org"
+    },
+    {
+      "name": "alex-werner",
+      "email": "alex@werner.fr"
+    },
+    {
+      "name": "jawid-h",
+      "email": "djavidoff@gmail.com"
+    },
+    {
+      "name": "nmarley",
+      "email": "nathan.marley@gmail.com"
+    },
+    {
+      "name": "seigler",
+      "email": "joshua@seigler.net"
+    },
+    {
+      "name": "shumkov",
+      "email": "ivan@shumkov.ru"
+    },
+    {
+      "name": "snogcel",
+      "email": "ledniknoj@gmail.com"
+    }
+  ],
+  "name": "@dashevo/dashcore-node",
+  "optionalDependencies": {
+    "bufferutil": "~4.0.1",
+    "utf-8-validate": "~5.0.2"
+  },
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dashevo/dashcore-node.git"
+  },
+  "scripts": {
+    "check-package": "npm run check-package:name && npm run check-package:version",
+    "check-package:name": "test $(jq -r .name package.json) = $(jq -r .name package-lock.json)",
+    "check-package:version": "test $(jq -r .version package.json) = $(jq -r .version package-lock.json)",
+    "coverage": "istanbul cover _mocha -- --recursive",
+    "coveralls": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- --recursive -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "dashd_test": "mocha test/services/dashd.unit.js",
+    "jshint": "jshint --reporter=node_modules/jshint-stylish ./lib",
+    "mocha": "mocha",
+    "regtest": "./regtest/regtest",
+    "test": "mocha -R spec --recursive"
+  },
+  "tags": [
+    "dash",
+    "dashd"
+  ],
+  "version": "5.1.3"
+}
