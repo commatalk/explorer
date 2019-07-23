@@ -1,0 +1,20 @@
+{
+	 "apps" : [
+
+	 	{
+	 		"name"              : "Service scan block",
+	 		"script"            : "src/scanBlock.js",
+	 		"watch"       : true,
+	 		"max_memory_restart":"250M",
+	 		"error_file": "/dev/null"
+	 	},
+		{
+			"name"		: "Server api",
+			"script" 	: "src/server.js",
+			"watch"       : true,
+	 		"max_memory_restart":"250M",
+	 		"error_file": "/dev/null"
+		}
+
+	 ]
+}
