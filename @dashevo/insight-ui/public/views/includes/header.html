@@ -1,0 +1,120 @@
+<style>
+  @font-face {
+    font-family: NoTo Sans;
+    src: url(fonts/NotoSans-Regular.ttf);
+  }
+
+  .navbar-right {
+    margin-right: -85px;
+  }
+
+  .navbar-default {
+    background-color: #256789;
+  }
+
+  .font-flex {
+    color: #639ab8;
+    font-family: NoTo Sans;
+    font-size: 16pt;
+  }
+
+  .font-flexi {
+    color: #6da6c3;
+    font-family: NoTo Sans;
+    font-size: 16pt;
+  }
+
+  #font-header {
+    color: #6da6c3;
+
+  }
+
+  .d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .glyphicon {
+    left: 8px;
+  }
+
+  ul.navbar-nav li {
+    height: 72px;
+  }
+
+  .navbar-nav>li>a {
+    padding-top: 0px;
+    padding-bottom: 22px;
+  }
+
+  .navbar-default .navbar-nav>li>a {
+    color: #cfe3f4;
+    font-family: NoTo Sans;
+    font-size: 16pt;
+    /* font-family: Montserrat,sans-serif; */
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 72px;
+    line-height: 65px;
+  }
+
+  .status {
+    padding: 3px 10px;
+  }
+</style>
+<div class="container">
+  <div data-ng-controller="HeaderController" class="d-flex">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"
+        data-ng-click="isCollapsed = !isCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div>
+        <a class="insight navbar-brand" href=".">
+          <img src="./img/comma_logo.png" style="width: 190px; height: auto;" alt="dash_logo">
+        </a>
+      </div>
+    </div>
+    <div class="navbar-collapse" uib-collapse="isCollapsed">
+      <ul class="nav navbar-nav">
+        <li class="font-flex" data-ng-repeat="item in menu" style="text-transform: uppercase;" ui-route="{{item.link}}"
+          data-ng-class="{active: $uiRoute}">
+          <a style="color: #639ab8;" href="{{item.link}}">{{item.title|translate}}</a>
+        </li>
+      </ul>
+      <span class="hidden-xs navbar-form navbar-left" data-ng-include src="'views/includes/search.html'"></span>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <div class="status" data-ng-controller="StatusController">
+            <div data-ng-init="getSync()" class="pull-left">
+              <span class="t text-danger" data-ng-show="sync.error" tooltip="{{sync.error}}" tooltip-placement="bottom">
+                <span class="glyphicon glyphicon-warning-sign"></span>
+                ERROR
+              </span>
+              <span class="t"
+                tooltip="{{sync.syncedBlocks}} / {{sync.blockChainHeight}} synced. {{sync.skippedBlocks || 0}} skipped"
+                tooltip-placement="bottom" data-ng-show="sync.status==='syncing'">
+                <!-- <span  class="glyphicon glyphicon-refresh icon-rotate"></span>
+            {{sync.syncPercentage}}%
+          </span> -->
+                <span class="glyphicon glyphicon-ok" tooltip="Historic sync finished" tooltip-placement="bottom"
+                  data-ng-show="sync.status==='finished'"> </span>
+            </div>
+            <!-- &nbsp; &middot; -->
+            <span data-ng-init="getStatus('Info')">
+              <span class="font-flex ">{{'CONN'|translate}} {{info.connections}}</span>
+            </span> <strong class="font-flexi">|</strong>
+            <strong class="font-flex">{{'Height'|translate}} {{totalBlocks || info.blocks}}</strong>
+          </div>
+        </li>
+        <li>
+
+          <a data-ng-click="openScannerModal()"><img src="./img/scan_icon.png" alt="dash_logo"></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

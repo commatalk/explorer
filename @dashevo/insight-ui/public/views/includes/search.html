@@ -1,0 +1,25 @@
+<style>
+  @font-face {
+  font-family: NoTo Sans;
+  src: url(fonts/NotoSans-Regular.ttf);
+}
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans&display=swap');
+.navbar-form .form-control {
+  background-color: #639ab8;
+}
+#search::-webkit-input-placeholder {
+  font-style: normal;
+}
+#search {
+  /* font-family: 'Noto Sans', sans-serif; */
+  font-family: NoTo Sans;
+  font-size: 18pt;
+  color: #b7d4e2;
+}
+</style>
+<form id="search-form" data-ng-controller="SearchController" role="search" data-ng-submit="search()">
+  <div class="form-group" data-ng-class="{'has-error': badQuery}">
+    <input id="search" type="text" class="form-control" data-ng-model="q" data-ng-class="{'loading': loading}" placeholder="{{'Search...'|translate}}" data-ng-submit="search()" focus="true">
+    </div>
+  <div class="no_matching text-danger" data-ng-show="badQuery" translate>No matching records found!</div>
+</form>

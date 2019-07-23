@@ -1,0 +1,155 @@
+<div data-ng-include src="'views/includes/connection.html'"></div>
+<section data-ng-controller="BlocksController" data-ng-init="findOne()">
+  <div class="secondary_navbar hidden-xs hidden-sm" scroll data-ng-class="{'hidden': !secondaryNavbar}"
+    data-ng-show="block.hash" data-ng-init="hideSNavbar=0">
+    <div class="container" data-ng-if="!hideSNavbar">
+      <div class="row">
+        <div class="col-md-1">
+          <a href="block/{{block.previousblockhash}}"><span class="lead glyphicon glyphicon-chevron-left"></span></a>
+        </div>
+        <div class="col-md-10">
+          <div class="row">
+            <div class="col-md-5">
+              <h3 class="text-left"><span translate>Block</span> #{{block.height}}</h3>
+            </div>
+            <p class="col-md-6 ellipsis text-left">
+              <strong>Hash</strong> {{block.hash}}
+            </p>
+            <div class="col-md-1 text-left">
+              <span class="btn-copy" clip-copy="block.hash"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <a data-ng-show="block.nextblockhash" href="block/{{block.nextblockhash}}"><span
+              class="lead glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+      </div>
+    </div> <!-- END OF CONTAINER -->
+    <div class="hide_snavbar">
+      <a href="#" data-ng-click="hideSNavbar=!hideSNavbar">
+        <span data-ng-show="hideSNavbar"><span class="text-muted glyphicon glyphicon-chevron-down"></span></span>
+        <span data-ng-show="!hideSNavbar"><span class="text-muted glyphicon glyphicon-chevron-up"></span></span>
+      </a>
+    </div>
+  </div>
+  <h1>Block #{{block.height}}</h1>
+  <div class="text-muted" data-ng-if="!block.hash">
+    <span translate>Loading Block Information</span> <span class="loader-gif"></span>
+  </div>
+  <div data-ng-if="block.hash">
+    <div class="row">
+    <div class="well well-sm ellipsis col-md-2" style="background-color: #e3e3e3">
+      <strong style="font-family: Noto Sans; font-size: 20pt; color: #343434;">BlockHash</strong>
+    </div>
+    <div class="well well-sm ellipsis col-md-10" style="background-color: #f0f0f0">
+      <span class="txid text-muted" style="font-family: Noto Sans; font-size: 20pt; color: #343434;">{{block.hash}}</span>
+      <span class="btn-copy" clip-copy="block.hash"></span>
+    </div>
+    </div>
+    <h2 translate style="font-family: Noto Sans; font-size: 26pt; color: #343434;">Summary</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <table class="table" style="table-layout: fixed">
+          <tbody>
+            <tr>
+              <td style="width: 80%;"><strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Number Of Transactions</strong></td>
+              <td class="text-right text-muted" style="font-family: Noto Sans; font-size: 18pt; color: #6c6c6c;">{{block.tx.length}}</td>
+            </tr>
+            <tr>
+              <td><strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Height</strong></td>
+              <td class="text-right text-muted">{{block.height}}
+                <span data-ng-show="block.isMainChain" class="text-success">(Mainchain)</span>
+                <span data-ng-show="!block.isMainChain" class="text-danger"> <span
+                    class="glyphicon glyphicon-warning-sign"></span> (Orphaned)</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="width: 10%;"><strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Block Reward</strong></td>
+              <td class="text-right text-muted">{{$root.currency.getConvertion(block.reward) || block.reward + ' CMC'}}
+              </td>
+            </tr>
+            <tr>
+              <td><strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Timestamp</strong></td>
+              <td class="text-right text-muted">{{block.time * 1000 | date:'medium'}}</td>
+            </tr>
+            <tr data-ng-show="block.poolInfo">
+              <td><strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Mined by</strong></td>
+              <td class="text-right text-muted">
+                <a href="{{block.poolInfo.url}}" target="_blank" style="color: #256788;"
+                  title="{{block.poolInfo.poolName}}">{{block.poolInfo.poolName}}</a>
+              </td>
+            </tr>
+            <tr>
+              <td><strong style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Merkle Root</strong></td>
+              <td class="text-right text-muted">
+                <div class="ellipsis">
+                  <span class="btn-copy" clip-copy="block.merkleroot"></span>
+                  <span>{{block.merkleroot}}</span>
+                </div>
+              </td>
+            </tr>
+            <tr data-ng-show="block.previousblockhash">
+              <td><strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Previous Block</strong></td>
+              <td class="text-right"><a style="color: #256788;" href="block/{{block.previousblockhash}}">{{block.height-1}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td> <strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Difficulty</strong></td>
+              <td class="text-right text-muted">{{block.difficulty}}</td>
+            </tr>
+            <tr>
+              <td> <strong style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Bits</strong></td>
+              <td class="text-right text-muted">{{block.bits}}</td>
+            </tr>
+            <tr>
+              <td style="width: 80%;"> <strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Size (bytes)</strong></td>
+              <td class="text-right text-muted">{{block.size}}</td>
+            </tr>
+            <tr>
+              <td> <strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Version</strong></td>
+              <td class="text-right text-muted">{{block.version}}</td>
+            </tr>
+            <tr>
+              <td> <strong style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Nonce</strong></td>
+              <td class="text-right text-muted">{{block.nonce}}</td>
+            </tr>
+            <tr data-ng-show="block.nextblockhash">
+              <td style="width: 80%;"><strong translate style="font-family: Noto Sans; font-size: 18pt; color: #343434;">Next Block</strong></td>
+              <td class="text-right"><a style="color: #256788;" href="block/{{block.nextblockhash}}">{{block.height+1}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div data-ng-if="block.hash" data-ng-controller="transactionsController" data-ng-init="load('block')">
+    <h3 translate style="font-family: Noto Sans; font-size: 26pt; color: #343434;">Transactions</h3>
+    <div data-ng-include src="'views/transaction/list.html'" when-scrolled="loadMore()"></div>
+  </div>
+</section>
+
+<style>
+  @font-face {
+    font-family: NoTo Sans;
+    src: url(fonts/NotoSans-Regular.ttf);
+  }
+
+  h1 {
+    text-transform: uppercase;
+    color: #343434;
+    font-family: Noto Sans;
+    font-size: 30pt;
+  }
+  .text-right {
+    font-family: Noto Sans;
+    font-size: 18pt;
+    color: #6c6c6c;
+    width: 95%;
+}
+</style>
